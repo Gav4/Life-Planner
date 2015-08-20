@@ -2,28 +2,26 @@ import pickle
 from datetime import timedelta, datetime
 import os
 
-
-def fn_list():  # list all tasks
-    for task in taskList:
-        print(taskList.index(task), end=" :")
-        print(task)
-    print()
-
-
 if os.path.isfile('taskFile2.list'):
     with open('taskFile2.list', 'rb') as taskFile:
         taskList = pickle.load(taskFile)  # taskList is automatically assigned to be a list.
 else:
     print('no list file exists. Creating one now..')
     taskList = []
-fn_list()
 
-#
-######
+def listAll():  # list all tasks
+   for task in taskList:
+       print(taskList.index(task), end=" :")
+       print(task)
+   print()
+
+listAll()
+
+
         # d = timedelta(microseconds=-1)
         # print(d.days, d.seconds, d.microseconds)
-print(datetime.now())  # time and date
-print(datetime.now())  # time only
+#print(datetime.now())  # time and date
+#print(datetime.now())  # time only
 
 # from datetime import datetime
 
@@ -45,17 +43,17 @@ while True:
         newTask = [newTask,5,5,1,]
         taskList.append(newTask)
         os.system('cls')
-        fn_list()
+        listAll()
         with open('taskFile2.list', 'wb') as taskFile:
             pickle.dump(taskList, taskFile)
     elif choice == 'L' or choice == 'l':
-        fn_list()
+        listAll()
     elif choice == 'D' or choice == 'd':
-        fn_list()
+        listAll()
         data = int(input('what number item? \n'))
         taskList.pop(data)
         os.system('cls')
-        fn_list()
+        listAll()
         with open('taskFile2.list', 'wb') as taskFile:
             pickle.dump(taskList, taskFile)
     elif choice == 'M' or choice == 'm':
