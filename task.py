@@ -25,12 +25,13 @@ listAll()
 
 # from datetime import datetime
 
-i = str(input('date'))
-
-try:
-    dt_start = datetime.strptime(i, '%Y, %m, %d')
-except ValueError:
-    print('Incorrect format')
+while True:
+	try:
+		i = str(input('enter due date. day,month,year'))
+		dt_start = datetime.strptime(i, '%d,%m,%Y')
+		break	
+	except ValueError:
+		print('Incorrect format. try again')
 
 print(dt_start)
 
@@ -76,6 +77,7 @@ while True:
         break
     else:
         print('that is not a choice \n')
+
 
 
 
