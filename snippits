@@ -1,0 +1,9 @@
+from datetime import datetime
+
+while True:
+            try:
+                i = str(input('enter due date. day,month,year'))
+                dt_start = datetime.strptime(i, '%d,%m,%Y')
+                break
+            except ValueError:
+                print('Incorrect format. try again')
